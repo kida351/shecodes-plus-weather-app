@@ -88,3 +88,10 @@ p {
   position: relative;
   left: -20px;
 }
+footer {
+  text-align: center;
+  position: relative;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+}
