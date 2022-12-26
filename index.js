@@ -28,12 +28,11 @@ function changeCity(event) {
 let cityForm = document.querySelector("#city-form");
 cityForm.addEventListener("submit", changeCity);
 
-//week 5
+//api
 function citySearch(event) {
   event.preventDefault();
-  let apiKey = "bc2cd97eaa209e7d22d8f3c84081655f";
   let name = document.querySelector("#city-input").value;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${name}&key=7ftb31c6ca144ob050a59fada87fc0d7&units=metric`;
   axios.get(`${apiUrl}`).then(showTemperature);
 }
 let cityForm2 = document.querySelector("#city-form");
@@ -41,13 +40,16 @@ cityForm2.addEventListener("submit", citySearch);
 
 function showTemperature(response) {
   document.querySelector("#current-temp").innerHTML = Math.round(
-    response.data.main.temp
+    response.data.temperature.current
   );
   document.querySelector("#city-input").innerHTML = response.data.name;
-  document.querySelector("h5").innerHTML = response.data.weather[0].description;
+  document.querySelector("h5").innerHTML = response.data.condition.description;
 
-  document.querySelector("#pressure").innerHTML = response.data.main.pressure;
-  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+  document.querySelector("#feels-like").innerHTML = Math.round(
+    response.data.temperature.feels_like
+  );
+  document.querySelector("#humidity").innerHTML =
+    response.data.temperature.humidity;
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
