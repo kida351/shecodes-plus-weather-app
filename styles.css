@@ -47,6 +47,10 @@ h4 {
   position: relative;
   left: 78px;
 }
+h4 .active {
+  color: black;
+  cursor: default;
+}
 h5 {
   font-size: 30px;
   position: relative;
@@ -81,7 +85,7 @@ p {
   transform: translate(0px, -20px);
 }
 .search-button:hover {
-  cursor: pointer;
+  cursor: default;
   background: #42b883;
   color: black;
 }
