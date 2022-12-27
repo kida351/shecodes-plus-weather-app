@@ -53,12 +53,10 @@
               <div class="col-sm-4">
                 <div class="row">
                   <h3 class="col-8 col-sm-5">
-                    <span id="current-temp">-6</span>°C
+                    <span id="current-temp">-6</span>°
                   </h3>
                   <div class="row">
-                    <h4 class="col">
-                      Feels Like: <span id="feels-like"></span>°
-                    </h4>
+                    <h4 class="col">C | F</h4>
                   </div>
                 </div>
               </div>
@@ -68,6 +66,9 @@
               <div class="row">
                 <div class="col"></div>
                 <div class="col-sm-7">
+                  <p class="feels-like">
+                    Feels Like: <span id="feels-like"></span>°
+                  </p>
                   <p class="humidity">Humidity: <span id="humidity"></span>%</p>
                   <p class="wind">Wind: <span id="wind"></span> m/s</p>
                 </div>
@@ -142,6 +143,7 @@
               id="city-input"
               placeholder="Search City..."
               class="form-control-lg search-bar"
+              autocomplete="off"
             />
             <input type="submit" value="Go" class="search-button" />
           </form>
