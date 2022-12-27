@@ -12,12 +12,15 @@ let days = [
 ];
 let theDay = days[dateTime.getDay()];
 let theHours = dateTime.getHours();
+if (theHours < 10) {
+  theTime.innerHTML = `0${theHours}`;
+}
 let theMinutes = dateTime.getMinutes();
+if (theMinutes < 10) {
+  theTime.innerHTML = `0${theMinutes}`;
+}
 theDate.innerHTML = `${theDay}`;
 theTime.innerHTML = `${theHours}:${theMinutes}`;
-if (theMinutes < 10) {
-  theTime.innerHTML = `${theHours}:0${theMinutes}`;
-}
 
 function changeCity(event) {
   event.preventDefault();
@@ -53,4 +56,7 @@ function showTemperature(response) {
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
+  document
+    .querySelector("#big-icon")
+    .setAttribute("src", response.data.condition.icon_url);
 }
