@@ -19,24 +19,20 @@ if (theMinutes < 10) {
   theTime.innerHTML = `${theHours}:0${theMinutes}`;
 }
 
-function changeCity(event) {
+function citySearch(city) {
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=7ftb31c6ca144ob050a59fada87fc0d7&units=metric`;
+  axios.get(`${apiUrl}`).then(showTemperature);
+}
+function whenSubmit(event) {
   event.preventDefault();
   let city = document.querySelector("h1");
   let cityInput = document.querySelector("#city-input");
   city.innerHTML = cityInput.value;
+  citySearch(cityInput.value);
 }
 let cityForm = document.querySelector("#city-form");
-cityForm.addEventListener("submit", changeCity);
-
-//api
-function citySearch(event) {
-  event.preventDefault();
-  let name = document.querySelector("#city-input").value;
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${name}&key=7ftb31c6ca144ob050a59fada87fc0d7&units=metric`;
-  axios.get(`${apiUrl}`).then(showTemperature);
-}
-let cityForm2 = document.querySelector("#city-form");
-cityForm2.addEventListener("submit", citySearch);
+cityForm.addEventListener("submit", whenSubmit);
+citySearch("Toronto");
 
 function showTemperature(response) {
   tempC = response.data.temperature.current;

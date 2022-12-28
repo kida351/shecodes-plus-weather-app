@@ -47,9 +47,11 @@ h4 {
   position: relative;
   left: 78px;
 }
+.container a {
+  cursor: default;
+}
 h4 .active {
   color: black;
-  cursor: default;
 }
 h5 {
   font-size: 30px;
