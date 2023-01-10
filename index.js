@@ -51,6 +51,8 @@ function showTemperature(response) {
   document
     .querySelector("#big-icon")
     .setAttribute("src", response.data.condition.icon_url);
+
+  getForecast(response.data.coordinates);
 }
 
 //conversion
@@ -80,7 +82,8 @@ let tempClink = document.querySelector("#tempc-link");
 tempClink.addEventListener("click", displayTempC);
 
 //forecast
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastHTML = `<div class="col align-self-end">`;
   let forecastElement = document.querySelector("#forecast");
   let days = ["Thursday", "Friday", "Saturday", "Sunday", "Monday"];
@@ -103,4 +106,11 @@ function displayForecast() {
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
-displayForecast();
+
+//forecast api
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apikey = "7ftb31c6ca144ob050a59fada87fc0d7";
+  let apiurl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apikey}&unit=metric`;
+  axios.get(apiurl).then(displayForecast);
+}
