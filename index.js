@@ -97,8 +97,7 @@ function displayForecast() {
   <div class="row">
     <section class="col-sm-10">2° / -3°</section>
     </div>
-  </span>
-  <br />`;
+  </span>`;
   });
 
   forecastHTML = forecastHTML + `</div>`;
