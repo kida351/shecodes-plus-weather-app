@@ -78,3 +78,30 @@ tempFlink.addEventListener("click", displayTempF);
 
 let tempClink = document.querySelector("#tempc-link");
 tempClink.addEventListener("click", displayTempC);
+
+//forecast
+function displayForecast() {
+  let forecastHTML = `<div class="col align-self-end">`;
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Thursday", "Friday", "Saturday", "Sunday", "Monday"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<span class="days-of-week" id="forecast">
+  <div class="row">
+    <div class="col-sm">
+      <i class="fa-solid fa-cloud small-icon"></i>
+    </div>
+    <header class="col-sm-2">${day}</header>
+  </div>
+  <div class="row">
+    <section class="col-sm-10">2° / -3°</section>
+    </div>
+  </span>
+  <br />`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+displayForecast();
