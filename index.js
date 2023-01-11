@@ -82,25 +82,50 @@ let tempClink = document.querySelector("#tempc-link");
 tempClink.addEventListener("click", displayTempC);
 
 //forecast
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  return days[day];
+}
+
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastHTML = `<div class="col align-self-end">`;
   let forecastElement = document.querySelector("#forecast");
-  let days = ["Thursday", "Friday", "Saturday", "Sunday", "Monday"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<span class="days-of-week" id="forecast">
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `<span class="days-of-week" id="forecast">
   <div class="row">
     <div class="col-sm">
-      <i class="fa-solid fa-cloud small-icon"></i>
+      <img
+          alt="icon"
+          class="small-icon"
+          id="small-icon"
+          src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+            forecastDay.condition.icon
+          }.png"
+          />
     </div>
-    <header class="col-sm-2">${day}</header>
+    <header class="col-sm-2">${formatDay(forecastDay.time)}</header>
   </div>
   <div class="row">
-    <section class="col-sm-10">2° / -3°</section>
+    <section class="col-sm-10">${Math.round(
+      forecastDay.temperature.maximum
+    )}° / ${Math.round(forecastDay.temperature.minimum)}°</section>
     </div>
   </span>`;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
