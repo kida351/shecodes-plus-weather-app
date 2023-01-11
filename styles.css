@@ -29,18 +29,19 @@ section {
   font-size: 16px;
 }
 .big-icon {
-  block-size: 100px;
+  block-size: 130px;
   position: relative;
-  left: 70px;
+  left: 60px;
   top: 10px;
 }
 .small-icon {
   block-size: 80px;
+  text-align: right;
 }
 h3 {
   font-size: 58px;
   position: relative;
-  left: 90px;
+  left: 70px;
   top: 14px;
 }
 h5 {
