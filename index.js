@@ -55,32 +55,6 @@ function showTemperature(response) {
   getForecast(response.data.coordinates);
 }
 
-//conversion
-function displayTempF(event) {
-  event.preventDefault();
-  tempClink.classList.remove("active");
-  tempFlink.classList.add("active");
-  let tempF = (tempC * 9) / 5 + 32;
-  let temperatureElement = document.querySelector("#current-temp");
-  temperatureElement.innerHTML = Math.round(tempF);
-}
-
-function displayTempC(event) {
-  event.preventDefault();
-  tempFlink.classList.remove("active");
-  tempClink.classList.add("active");
-  let temperatureElement = document.querySelector("#current-temp");
-  temperatureElement.innerHTML = Math.round(tempC);
-}
-
-let tempC = null;
-
-let tempFlink = document.querySelector("#tempf-link");
-tempFlink.addEventListener("click", displayTempF);
-
-let tempClink = document.querySelector("#tempc-link");
-tempClink.addEventListener("click", displayTempC);
-
 //forecast
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
@@ -134,7 +108,6 @@ function displayForecast(response) {
 
 //forecast api
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apikey = "7ftb31c6ca144ob050a59fada87fc0d7";
   let apiurl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apikey}&unit=metric`;
   axios.get(apiurl).then(displayForecast);
