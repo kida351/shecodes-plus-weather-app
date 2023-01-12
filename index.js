@@ -35,9 +35,9 @@ cityForm.addEventListener("submit", whenSubmit);
 citySearch("Toronto");
 
 function showTemperature(response) {
-  tempC = response.data.temperature.current;
-
-  document.querySelector("#current-temp").innerHTML = Math.round(tempC);
+  document.querySelector("#current-temp").innerHTML = Math.round(
+    response.data.temperature.current
+  );
   document.querySelector("#city-input").innerHTML = response.data.name;
   document.querySelector("h5").innerHTML = response.data.condition.description;
   document.querySelector("#feels-like").innerHTML = Math.round(
@@ -76,7 +76,7 @@ function displayForecast(response) {
   let forecastHTML = `<div class="col align-self-end">`;
   let forecastElement = document.querySelector("#forecast");
   forecast.forEach(function (forecastDay, index) {
-    if (index < 5) {
+    if (index < 3) {
       forecastHTML =
         forecastHTML +
         `<span class="days-of-week" id="forecast">

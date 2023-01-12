@@ -24,20 +24,14 @@ h2 {
   margin-top: 20px;
   margin-left: 10px;
 }
-header,
-section {
-  font-size: 16px;
-}
+
 .big-icon {
-  block-size: 130px;
+  block-size: 100px;
   position: relative;
-  left: 60px;
+  left: 70px;
   top: 10px;
 }
-.small-icon {
-  block-size: 80px;
-  text-align: right;
-}
+
 h3 {
   font-size: 58px;
   position: relative;
@@ -86,6 +80,17 @@ p {
   text-align: right;
   position: relative;
   left: -20px;
+}
+header,
+section {
+  font-size: 16px;
+}
+.small-icon {
+  block-size: 80px;
+  position: relative;
+  left: 10px;
+  top: 16px;
+  padding: 0px;
 }
 footer {
   text-align: center;
