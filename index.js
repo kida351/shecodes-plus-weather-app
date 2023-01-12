@@ -76,7 +76,7 @@ function displayForecast(response) {
   let forecastHTML = `<div class="col align-self-end">`;
   let forecastElement = document.querySelector("#forecast");
   forecast.forEach(function (forecastDay, index) {
-    if (index < 3) {
+    if (index < 4) {
       forecastHTML =
         forecastHTML +
         `<div class="days-of-week" id="forecast">
