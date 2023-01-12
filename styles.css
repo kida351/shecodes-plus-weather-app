@@ -14,14 +14,14 @@
 }
 h1 {
   font-size: 54px;
-  margin-top: 10px;
+  margin-top: 20px;
   margin-left: 10px;
   text-transform: capitalize;
 }
 h2 {
   font-size: 20px;
   line-height: 20px;
-  margin-top: 20px;
+  margin-top: 30px;
   margin-left: 10px;
 }
 
@@ -58,7 +58,7 @@ p {
   border-color: black;
   line-height: 46px;
   font-size: 20px;
-  transform: translate(0px, -20px);
+  transform: translate(0px, -30px);
 }
 .search-button {
   border-radius: 12px;
@@ -69,7 +69,7 @@ p {
   background: #ffffff;
   color: #757575;
   transition: all 150ms ease-in-out;
-  transform: translate(0px, -20px);
+  transform: translate(0px, -30px);
 }
 .search-button:hover {
   cursor: default;
@@ -85,12 +85,18 @@ header,
 section {
   font-size: 16px;
 }
+header {
+  position: relative;
+  top: 6px;
+}
+section {
+  position: relative;
+}
 .small-icon {
   block-size: 80px;
   position: relative;
-  left: 10px;
-  top: 16px;
-  padding: 0px;
+  left: 18px;
+  top: 10px;
 }
 footer {
   text-align: center;

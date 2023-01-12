@@ -79,7 +79,7 @@ function displayForecast(response) {
     if (index < 3) {
       forecastHTML =
         forecastHTML +
-        `<span class="days-of-week" id="forecast">
+        `<div class="days-of-week" id="forecast">
   <div class="row">
     <div class="col-sm">
       <img
@@ -93,12 +93,10 @@ function displayForecast(response) {
     </div>
     <header class="col-sm-2">${formatDay(forecastDay.time)}</header>
   </div>
-  <div class="row">
     <section class="col-sm-10">${Math.round(
       forecastDay.temperature.maximum
     )}° / ${Math.round(forecastDay.temperature.minimum)}°</section>
-    </div>
-  </span>`;
+  </div>`;
     }
   });
 
