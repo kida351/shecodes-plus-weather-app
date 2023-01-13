@@ -76,7 +76,7 @@ function displayForecast(response) {
   let forecastHTML = `<div class="col align-self-end">`;
   let forecastElement = document.querySelector("#forecast");
   forecast.forEach(function (forecastDay, index) {
-    if (index < 4) {
+    if (index < 3) {
       forecastHTML =
         forecastHTML +
         `<div class="days-of-week" id="forecast">
@@ -107,6 +107,6 @@ function displayForecast(response) {
 //forecast api
 function getForecast(coordinates) {
   let apikey = "7ftb31c6ca144ob050a59fada87fc0d7";
-  let apiurl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apikey}&unit=metric`;
+  let apiurl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apikey}&units=metric`;
   axios.get(apiurl).then(displayForecast);
 }
